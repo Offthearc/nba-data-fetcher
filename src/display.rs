@@ -4,12 +4,18 @@ use colored::*;
 use crate::models::{GameStatus, GameSummary};
 
 pub fn print_games(games: &[GameSummary], date: &NaiveDate) {
+    let game_count = games.len();
     println!(
         "\n{}",
-        format!(" NBA Games — {} ", date.format("%B %d, %Y"))
-            .bold()
-            .white()
-            .on_blue()
+        format!(
+            " NBA Games — {}  ({} game{}) ",
+            date.format("%B %d, %Y"),
+            game_count,
+            if game_count == 1 { "" } else { "s" }
+        )
+        .bold()
+        .white()
+        .on_blue()
     );
     println!();
 
