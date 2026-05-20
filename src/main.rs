@@ -14,7 +14,8 @@ async fn main() -> Result<()> {
     let games = api::fetch_games(&date).await?;
 
     if games.is_empty() {
-        println!("No NBA games found for {}.", date.format("%B %d, %Y"));
+        eprintln!("No NBA games found for {}.", date.format("%B %d, %Y"));
+        std::process::exit(0);
     } else {
         display::print_games(&games, &date);
     }
