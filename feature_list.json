@@ -1,0 +1,46 @@
+{
+  "features": [
+    {
+      "id": "f1",
+      "name": "Project scaffold",
+      "description": "Rust project structure with Cargo.toml, src layout, and dependencies",
+      "status": "done",
+      "verification": "cargo build exits 0"
+    },
+    {
+      "id": "f2",
+      "name": "CLI argument parsing",
+      "description": "clap-based CLI with --yesterday (-y) and --date (-d YYYY-MM-DD) flags",
+      "status": "done",
+      "verification": "cargo run -- --help shows correct flags"
+    },
+    {
+      "id": "f3",
+      "name": "ESPN API integration",
+      "description": "Fetch NBA scoreboard data from ESPN public API for a given date",
+      "status": "done",
+      "verification": "cargo test test_fetch_games_returns_results_for_known_date passes"
+    },
+    {
+      "id": "f4",
+      "name": "Game summary display",
+      "description": "Formatted colored terminal output showing teams, scores, game status, venue, and tip-off time",
+      "status": "done",
+      "verification": "cargo run -- -d 2024-01-15 shows formatted game summaries"
+    },
+    {
+      "id": "f5",
+      "name": "Error handling",
+      "description": "Graceful error messages for network failures, invalid dates, and API errors",
+      "status": "done",
+      "verification": "cargo run -- -d not-a-date prints readable error and exits non-zero"
+    },
+    {
+      "id": "f6",
+      "name": "Integration tests",
+      "description": "Tests for API fetching, date parsing, and edge cases",
+      "status": "done",
+      "verification": "cargo test passes all 4 tests"
+    }
+  ]
+}
