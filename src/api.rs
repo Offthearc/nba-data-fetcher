@@ -61,11 +61,11 @@ fn parse_event(event: Event) -> GameSummary {
     let game_time = format_game_time(&event.date);
 
     GameSummary {
-        home_team: team_name(home, true),
+        home_team: team_name(home),
         home_abbrev: team_abbrev(home),
         home_score: parse_score(home),
         home_record: extract_record(home),
-        away_team: team_name(away, true),
+        away_team: team_name(away),
         away_abbrev: team_abbrev(away),
         away_score: parse_score(away),
         away_record: extract_record(away),
@@ -79,7 +79,7 @@ fn find_competitor<'a>(competitors: &'a [Competitor], side: &str) -> Option<&'a 
     competitors.iter().find(|c| c.home_away == side)
 }
 
-fn team_name(c: Option<&Competitor>, _display: bool) -> String {
+fn team_name(c: Option<&Competitor>) -> String {
     c.map(|c| c.team.display_name.clone()).unwrap_or_default()
 }
 
